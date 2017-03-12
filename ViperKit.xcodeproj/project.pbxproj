@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4454C4811E74592B00A23AFF /* TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454C4801E74592B00A23AFF /* TransitionHandler.swift */; };
+		4454C4831E745AA800A23AFF /* ModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454C4821E745AA800A23AFF /* ModuleInput.swift */; };
+		4454C4851E745AE600A23AFF /* ModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454C4841E745AE600A23AFF /* ModuleOutput.swift */; };
+		4454C48F1E745CB400A23AFF /* UIViewController+TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454C48E1E745CB400A23AFF /* UIViewController+TransitionHandler.swift */; };
+		4454C4911E74612600A23AFF /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454C4901E74612600A23AFF /* DispatchQueue+Once.swift */; };
 		84A1524D1E71A04B0073EB38 /* ViperKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A1524B1E71A04B0073EB38 /* ViperKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4454C4801E74592B00A23AFF /* TransitionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionHandler.swift; sourceTree = "<group>"; };
+		4454C4821E745AA800A23AFF /* ModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleInput.swift; sourceTree = "<group>"; };
+		4454C4841E745AE600A23AFF /* ModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleOutput.swift; sourceTree = "<group>"; };
+		4454C48E1E745CB400A23AFF /* UIViewController+TransitionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TransitionHandler.swift"; sourceTree = "<group>"; };
+		4454C4901E74612600A23AFF /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		84A152481E71A04B0073EB38 /* ViperKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ViperKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A1524B1E71A04B0073EB38 /* ViperKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViperKit.h; sourceTree = "<group>"; };
 		84A1524C1E71A04B0073EB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +37,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4454C47F1E74588D00A23AFF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4454C4901E74612600A23AFF /* DispatchQueue+Once.swift */,
+				4454C4821E745AA800A23AFF /* ModuleInput.swift */,
+				4454C4841E745AE600A23AFF /* ModuleOutput.swift */,
+				4454C4801E74592B00A23AFF /* TransitionHandler.swift */,
+				4454C48E1E745CB400A23AFF /* UIViewController+TransitionHandler.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		84A1523E1E71A04B0073EB38 = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +68,7 @@
 		84A1524A1E71A04B0073EB38 /* ViperKit */ = {
 			isa = PBXGroup;
 			children = (
+				4454C47F1E74588D00A23AFF /* Classes */,
 				84A1524B1E71A04B0073EB38 /* ViperKit.h */,
 				84A1524C1E71A04B0073EB38 /* Info.plist */,
 			);
@@ -95,8 +118,8 @@
 				TargetAttributes = {
 					84A152471E71A04B0073EB38 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 392M6V3BMG;
-						ProvisioningStyle = Automatic;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -132,6 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4454C48F1E745CB400A23AFF /* UIViewController+TransitionHandler.swift in Sources */,
+				4454C4851E745AE600A23AFF /* ModuleOutput.swift in Sources */,
+				4454C4911E74612600A23AFF /* DispatchQueue+Once.swift in Sources */,
+				4454C4831E745AA800A23AFF /* ModuleInput.swift in Sources */,
+				4454C4811E74592B00A23AFF /* TransitionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,18 +268,21 @@
 		84A152511E71A04B0073EB38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 392M6V3BMG;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ViperKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.leadgroup.ViperKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -259,14 +290,16 @@
 		84A152521E71A04B0073EB38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 392M6V3BMG;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ViperKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.leadgroup.ViperKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -294,6 +327,7 @@
 				84A152521E71A04B0073EB38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
