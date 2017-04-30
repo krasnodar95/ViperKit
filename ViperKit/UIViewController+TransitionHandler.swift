@@ -48,13 +48,15 @@ extension UIViewController {
       destinationViewController = navController.topViewController
     }
     
-    if let destinationTransitionHandler = destinationViewController as? TransitionHandler,
+    if let destinationTransitionHandler = destinationViewController,
       let destinationModuleInput = destinationTransitionHandler.moduleInput,
       let block = sender as? ConfigurationBlock {
       block(destinationModuleInput)
     }
   }
 }
+
+
 
 extension UIViewController: TransitionHandler {
   public func openModule(_ segueIdentifier: String) {
