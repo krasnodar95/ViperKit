@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TransitionHandler.h"
+#import "ModuleInput.h"
+#import "UIViewController+Swizzle.h"
 
 //! Project version number for ViperKit.
 FOUNDATION_EXPORT double ViperKitVersionNumber;

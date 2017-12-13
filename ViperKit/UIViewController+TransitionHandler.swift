@@ -9,8 +9,10 @@
 import UIKit
 
 extension UIViewController {
-  private static let tokenId = "UIViewController.prepareForSegue"
   private static let moduleInputAssociatedObjectKey = ""
+}
+
+extension UIViewController: TransitionHandler {
   public var moduleInput: ModuleInput? {
     get {
       var result = objc_getAssociatedObject(self, UIViewController.moduleInputAssociatedObjectKey) as? ModuleInput
@@ -28,42 +30,11 @@ extension UIViewController {
     }
   }
   
-  open override class func initialize () {
-    swizzlePrepareForSegue()
-  }
-  
-  private class func swizzlePrepareForSegue() {
-    DispatchQueue.once(token: tokenId) {
-      let prepareForSegueMethod = class_getInstanceMethod( self, #selector(prepare(for:sender:)) )
-      let newPrepareForSegueMethod = class_getInstanceMethod( self, #selector(newPrepare(for:sender:)) )
-      method_exchangeImplementations(prepareForSegueMethod, newPrepareForSegueMethod)
-    }
-  }
-  
-  @objc private func newPrepare(for segue: UIStoryboardSegue, sender: Any?) {
-    newPrepare(for: segue, sender: sender)
-    
-    var destinationViewController: UIViewController? = segue.destination
-    if let navController = destinationViewController as? UINavigationController {
-      destinationViewController = navController.topViewController
-    }
-    
-    if let destinationTransitionHandler = destinationViewController,
-      let destinationModuleInput = destinationTransitionHandler.moduleInput,
-      let block = sender as? ConfigurationBlock {
-      block(destinationModuleInput)
-    }
-  }
-}
-
-
-
-extension UIViewController: TransitionHandler {
   public func openModule(_ segueIdentifier: String) {
     performSegue(withIdentifier: segueIdentifier, sender: nil)
   }
   
-  public func openModule(_ segueIdentifier: String, configurationBlock: ConfigurationBlock) {
+  public func openModule(_ segueIdentifier: String!, configurationBlock: ConfigurationBlock!) {
     performSegue(withIdentifier: segueIdentifier, sender: configurationBlock)
   }
   
