@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
 
   s.framework = "UIKit"
 
-  s.source_files = "ViperKit/**/*.{swift}"
+  s.source_files = "ViperKit/**/*.{swift,h,m}"
 end
