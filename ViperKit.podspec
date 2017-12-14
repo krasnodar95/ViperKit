@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.framework = "UIKit"
 
   s.source_files = "ViperKit/**/*.{swift,h,m}"
+  s.requires_arc = true
 end
